@@ -29,7 +29,7 @@ export const initiate = async (amount, to_username, paymentform)=>{
 export const fetchuser = async (username) =>{
     let u = await User.findOne({ username: username });
     if (!u) {
-        // Handle the case where the user doesn't exist
+        // Handle the case where the user doesn"t exist
         return { error: "User not found" };
     }
     let user = u.toObject({ flattenObjectIds: true });

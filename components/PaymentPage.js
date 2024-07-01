@@ -3,12 +3,13 @@ import React, { useState, useEffect } from "react";
 import Script from "next/script";
 import { useSession } from "next-auth/react";
 import { fetchuser, fetchpayments, initiate } from "@/actions/userActions";
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams } from "next/navigation"
 import { ToastContainer,toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
-import { Bounce } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import { Bounce } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 
 
 const PaymentPage = ({ username }) => {
@@ -25,7 +26,7 @@ const PaymentPage = ({ username }) => {
 
   useEffect(() => {
     if(searchParams.get("paymentdone")=="true"){
-      toast('Wohooo! A payment rcvd!',{
+      toast("Wohooo! A payment rcvd!",{
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -65,10 +66,10 @@ const PaymentPage = ({ username }) => {
       order_id: orderId, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
       callback_url: `${process.env.NEXT_PUBLIC_URL}/api/razorpay`,
       prefill: {
-        //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
-        name: "Gaurav Kumar", //your customer's name
+        //We recommend using the prefill parameter to auto-fill customer"s contact information especially their phone number
+        name: "Gaurav Kumar", //your customer"s name
         email: "gaurav.kumar@example.com",
-        contact: "9000090000", //Provide the customer's phone number for better conversion rates
+        contact: "9000090000", //Provide the customer"s phone number for better conversion rates
       },
       notes: {
         address: "Razorpay Corporate Office",
@@ -100,13 +101,15 @@ const PaymentPage = ({ username }) => {
       <ToastContainer/>
       <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
       <div className="cover w-full relative">
-        <img
+        <Image
           className="object-cover w-full h-50 md:h-[350]"
           src={currentUser.coverpic}
+          width={128}
+          height={128}
           alt=""
         />
         <div className="absolute -bottom-16 right-[38%] md:right-[44%] overflow-hidden rounded-full size-35">
-          <img
+          <Image
             className="border-gray-400 border-4 rounded-full object-cover size 36"
             height="128"
             width="128"
@@ -117,7 +120,7 @@ const PaymentPage = ({ username }) => {
       </div>
       <div className=" info flex justify-center items-center my-20 gap-4 flex-col">
         <div className="font-bold text-lg">@{username}</div>
-        <div className="text-slate-400">Let's help {username} to get a ☕</div>
+        <div className="text-slate-400">Let"s help {username} to get a ☕</div>
         <div className="text-slate-400">
           {payments.length} Payments • {currentUser.name} ₹ {payments.reduce((a, b) => a + b.amount, 0)} raised
         </div>
@@ -128,7 +131,7 @@ const PaymentPage = ({ username }) => {
               <ul className="mx-5">
                 {payments.map((p, i) => (
                   <li key={i} className="my-2 flex gap-2 items-center">
-                    <img width={33} src="avatar.gif" alt="user avatar" />
+                    <Image width={33} height={33} src="/avatar.gif"  alt="user avatar" />
                     <span>
                       {p.name} donated <b>₹{p.amount}</b> with message "
                       {p.message}"

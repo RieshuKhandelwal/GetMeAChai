@@ -1,8 +1,8 @@
-import React from 'react'
-import PaymentPage from '@/components/PaymentPage'
+import React from "react"
+import PaymentPage from "@/components/PaymentPage"
 import { notFound } from "next/navigation"
-import connectDB from '@/db/connectDB'
-import User from '@/models/User'
+import connectDB from "@/db/connectDB"
+import User from "@/models/User"
 
 
 const Username = async ({params}) => {

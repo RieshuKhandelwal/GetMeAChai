@@ -1,7 +1,8 @@
 "use client"
-import React,{ useState } from 'react';
-import { useSession, signIn, signOut } from 'next-auth/react'
-import Link from 'next/link'
+import React,{ useState } from "react";
+import { useSession, signIn, signOut } from "next-auth/react"
+import Link from "next/link"
+import Image from "next/image";
 
 
 
@@ -11,13 +12,13 @@ const Navbar = () => {
   
 
   return (
-    <nav className='bg-gray-600 shadow-lg shadow-white text-white flex justify-between px-4 md:h-16 items-center flex-col md:flex-row'>
-      <Link href={'/'} className='logo font-bold text-lg flex justify-center items-center'>
-        <img src="/tea.gif" width={66} alt="GetmeAChai" />
-        <span className='text-xl md:text-base my-3 ms:my-0'>Get Me a Chai!</span>
+    <nav className="bg-gray-600 shadow-lg shadow-white text-white flex justify-between px-4 md:h-16 items-center flex-col md:flex-row">
+      <Link href={"/"} className="logo font-bold text-lg flex justify-center items-center">
+        <Image src="/tea.gif" width={66} height={66} alt="GetmeAChai" />
+        <span className="text-xl md:text-base my-3 ms:my-0">Get Me a Chai!</span>
       </Link>
 
-      <div className='relative flex flex-col md:block gap-4'>
+      <div className="relative flex flex-col md:block gap-4">
         {session && <><button onClick={()=> setShowdropdown(!showdropdown)} onBlur = {() => {setTimeout(() => { 
           setShowdropdown(false)
         }, 300); }} id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="text-white mx-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Welcome {session.user.email} 
@@ -41,9 +42,9 @@ const Navbar = () => {
           </div></>
         }
 
-        {session && <Link href={"/login"}><button className='text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2' onClick={() => { signOut() }} >Log Out</button></Link>}
+        {session && <Link href={"/login"}><button className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onClick={() => { signOut() }} >Log Out</button></Link>}
         {!session && <Link href={"/login"}>
-          <button className='text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'>Log In</button></Link>}
+          <button className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Log In</button></Link>}
       </div>
     </nav>
   )

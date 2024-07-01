@@ -30,7 +30,7 @@ export const authoptions = NextAuth({
         // }),
         // EmailProvider({
         //     server: process.env.MAIL_SERVER,
-        //     from: 'NextAuth.js <no-reply@example.com>'
+        //     from: "NextAuth.js <no-reply@example.com>"
         // })
     ],
     callbacks: {

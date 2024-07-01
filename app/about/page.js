@@ -1,24 +1,25 @@
-import React from 'react'
+import React from "react"
+import Image from "next/image";
 
 const About = () => {
   return (
     
-    <div className='container mx-auto px-8 md:px-4 py-8'>
-      <h1 className='text-3xl font-semibold mb-4'>About Get Me a Chai </h1>
-      <p className='text-lg mb-6'>
-        Get Me a Chai is a crowdfunding platform designed for creators to fund their projects with the support of their fans. It's a space where your fans can directly contribute to your creative endeavors by buying you a chai. Unlock the potential of your fanbase and bring your projects to life.
+    <div className="container mx-auto px-8 md:px-4 py-8">
+      <h1 className="text-3xl font-semibold mb-4">About Get Me a Chai </h1>
+      <p className="text-lg mb-6">
+        Get Me a Chai is a crowdfunding platform designed for creators to fund their projects with the support of their fans. It"s a space where your fans can directly contribute to your creative endeavors by buying you a chai. Unlock the potential of your fanbase and bring your projects to life.
       </p>
       <h2 className="text-2xl font-semibold mb-4">How It Works</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         <div className="flex items-center mb-6">
-          <img className="w-20 h-20 rounded-full mr-4" src="https://lordicon.com/icons/wired/flat/2374-crowdfunding.gif" alt="Fans Want to Collaborate" />
+          <Image className="w-20 h-20 rounded-full mr-4" src="https://lordicon.com/icons/wired/flat/2374-crowdfunding.gif" width={88} height={88} alt="Fans Want to Collaborate" />
           <div>
             <h3 className="text-xl font-semibold mb-2">Fans Want to Collaborate</h3>
             <p>Your fans are enthusiastic about collaborating with you on your projects.</p>
           </div>
         </div>
         <div className="flex items-center mb-6">
-          <img className="w-20 h-20 rounded-full mr-4" src="https://lordicon.com/icons/wired/flat/291-coin-dollar.gif" alt="Fans Want to Collaborate" />
+          <Image className="w-20 h-20 rounded-full mr-4" src="https://lordicon.com/icons/wired/flat/291-coin-dollar.gif" width={88} height={88} alt="Fans Want to Collaborate" />
           <div>
             <h3 className="text-xl font-semibold mb-2">Support Through Chai</h3>
             <p>Receive support from your fans in the form of chai purchases, directly contributing to your project funding. </p>
